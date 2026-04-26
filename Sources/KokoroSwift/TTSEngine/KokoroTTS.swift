@@ -169,9 +169,7 @@ public final class KokoroTTS {
     // Update language if it has changed
     try updateLanguageIfNeeded(language)
 
-    // Start performance timing
-    BenchmarkTimer.reset()
-    BenchmarkTimer.startTimer(Constants.bm_TTS)
+    // Start performance timing (BenchmarkTimer removed in MLXUtilsLibrary 0.0.7)
 
     // Step 1: Convert text to phonemes
     let (phonemizedText, tokenArray) = try phonemizeText(text)
@@ -221,8 +219,7 @@ public final class KokoroTTS {
       TimestampPredictor.preditTimestamps(tokens: tokenArray, predictionDuration: predictedDurations)
     }
     
-    // Stop performance timing
-    BenchmarkTimer.stopTimer(Constants.bm_TTS)
+    // Stop performance timing (BenchmarkTimer removed in MLXUtilsLibrary 0.0.7)
 
     return (audio[0].asArray(Float.self), tokenArray)
   }
